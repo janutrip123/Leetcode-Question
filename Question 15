@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int findComplement(int num) {
+        int res=0;
+        int i =0;
+        while(num!=0){
+            int bit=num&1;
+            bit=1-bit;
+            res=res + bit * (1 << i); //1<<0=1,1<<1=2  i.e== 2^i  2^0,2^1,2^2........
+            num=num>>1;//n/2 shift to next most significant bit
+            i++;
+        }
+        return res;
+    }
+};
