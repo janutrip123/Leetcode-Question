@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int bitwiseComplement(int n) {
+        int m=n;
+        int mask=0;
+        if(n == 0){
+            return 1;
+        }
+        while(m!=0){
+            mask=(mask << 1) | 1;
+            m=m >> 1;
+        }
+        int ans =(~n) & mask;
+        return ans;// biwise operator~ is flip all 32 bit but we only need required bit to flip that's why we use mask ans mask is taking depend upon the input n if input n digit is representing in 3 bit binary no. then mask is 111 and i.e if n=k then mask is also equal to k i.e example n=10101 then mask is 11111 but it is fix that mask is only in the form of 1 i.e collection of 1's
+
+        
+    }
+};
